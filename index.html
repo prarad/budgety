@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Budgety</title>
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="budget_title">Available budget in
+            <span>%Month%</span>
+        </div>
+        <div class="budget"></div>
+        <div class="budget_income clearfix">
+            <div class="budget_income_title">Income</div>
+            <div class="budget_income_value">+</div>
+        </div>
+        <div class="budget_expenses clearfix">
+            <div class="budget_expenses_title">Expenses</div>
+            <div class="right">
+                <div class="budget_expenses_value">-</div>
+                <div class="percentage">-1</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="controlBar">
+        <select class="add_type">
+            <option value="inc">+</option>
+            <option value="exp">-</option>
+        </select>
+        <input type="text" class="add_description" placeholder="Add description">
+        <input type="number" class="add_value" placeholder="Value">
+        <button class="add_item fa fa-check"></button>
+    </div>
+
+
+    <div class="bottom">
+
+        <div class="income">
+            <h2>Income</h2>
+            <div class="income_list">
+<!-- 
+<div class='item' id='inc_%id%'>
+    <div class='item_desc'>%description%</div>
+    <div class='right'>
+        <div class='item_val'>%value%</div>
+        <div class='item_del'>
+            <button class='item_del_btn'>
+                <i class='fa fa-close'></i>
+            </button>
+        </div>
+    </div>
+</div> -->
+            </div>
+        </div>
+
+
+        <div class="expenses">
+            <h2>Expenses</h2>
+            <div class="expense_list">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

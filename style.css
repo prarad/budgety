@@ -1,0 +1,155 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.top{
+    text-align: center;
+    height: 200px;
+    background: url() center #283F3C;
+    padding-top: 1px;
+    color: #ffffff;
+}
+.budget_title{
+    margin:20px 0;
+}
+
+.clearfix{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    padding: 14px 12px;
+    margin: 10px auto;
+    background-color: #9FE26C;
+}
+
+.budget_income{
+    background-color: #25B1AC;
+}
+.budget_expenses{
+    background-color: #FF3341;
+}
+.percentage{
+    height: max-content;
+    padding: 2px;
+    margin-left: 10px;
+    font-size: .5em;
+    background-color: #FFA5AA
+}
+.budget_expenses_title, .budget_income_title{
+    color: #000000;
+}
+
+
+/* controll bar */
+.controlBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #E2E2E2;
+}
+
+select, input, .add_item{
+    border: 1px solid #cccccc;
+    outline: none;
+    background: none;
+    border-radius: 4px;
+    transition: .3s;
+    background-color: #eeeeee;
+}
+.add_type{
+    width: 50px;
+    height: 30px;
+    padding: 4px;
+    font-size: 1em;
+}
+.add_description{
+    width: 200px;
+    height: 30px;
+    margin: 0 10px;
+    padding: 4px 10px;
+}
+.add_value{
+    width: 80px;
+    height: 30px;
+    margin: 10px 10px 10px 0;
+    padding: 4px 10px;
+}
+.add_item{
+    color: #25B1AC;
+    height: 30px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.clickBtn{
+    animation-name: click;
+    animation-duration: .3s;
+    animation-fill-mode: backwards;
+}
+@keyframes click{
+    to{
+        background-color: #25B1AC;
+        color: #eeeeee;
+        transform: scale(.95);      
+    }
+}
+:focus:not(.add_item){
+    border-color: #25B1AC;
+}
+/* bottom */
+
+
+.bottom{
+    display: flex;
+    justify-content: center;
+}
+.income, .expenses{
+    width: 40%;
+    margin: 50px 10px;
+}
+.income{
+    color: #25B1AC;
+}
+.expenses{
+    color: #FF3341;
+}
+.item_desc{
+    color: #000000;
+}
+.item:first-child{
+    margin-top: 15px;
+    border-top: 1px solid #cccccc;
+}
+.item{
+    display: flex;
+    padding: 4px 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+}
+.item:nth-child(odd){
+    background-color: #eeeeee;
+}
+/* the section for value and the delete button */
+.right{
+    display:flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+.item_del_btn{
+    text-align: center;
+    border: 1px solid #FF3341;
+    background: none;
+    transition: .5s;
+    color: #FF3341;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-left: 8px;
+    margin-right: -50px;
+    cursor: pointer;
+}
+
+.item:hover .item_del_btn{
+    margin-right: 0;
+}
