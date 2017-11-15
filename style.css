@@ -6,7 +6,7 @@
 .top{
     text-align: center;
     height: 200px;
-    background: url() center #283F3C;
+    background: #333;
     padding-top: 1px;
     color: #ffffff;
 }
@@ -23,18 +23,24 @@
     background-color: #9FE26C;
 }
 
+.red{color:#FF3341 !important}
+.red_focus:focus{border: 1px solid #FF3341 !important}
+
 .budget_income{
     background-color: #25B1AC;
 }
 .budget_expenses{
     background-color: #FF3341;
 }
-.percentage{
-    height: max-content;
+.percentage, .item_percentage{
+    align-items: baseline;
+    height: 15px;
+    line-height: 15px;
     padding: 2px;
     margin-left: 10px;
     font-size: .5em;
-    background-color: #FFA5AA
+    background-color: #FFACB0;
+    border-radius: 2px;
 }
 .budget_expenses_title, .budget_income_title{
     color: #000000;
@@ -82,12 +88,24 @@ select, input, .add_item{
     padding: 4px 8px;
     cursor: pointer;
 }
-.clickBtn{
-    animation-name: click;
+.click_inc{
+    animation-name: click_inc;
     animation-duration: .3s;
     animation-fill-mode: backwards;
 }
-@keyframes click{
+.click_exp{
+    animation-name: click_exp;
+    animation-duration: .3s;
+    animation-fill-mode: backwards;
+}
+@keyframes click_exp{
+    to{
+        background: #FF3341;
+        color: #eeeeee;
+        transform: scale(.95);      
+    }
+}
+@keyframes click_inc{
     to{
         background-color: #25B1AC;
         color: #eeeeee;
