@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+.top, .bottom{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .top{
     text-align: center;
     height: 200px;
@@ -13,7 +16,6 @@
 .budget_title{
     margin:20px 0;
 }
-
 .clearfix{
     display: flex;
     justify-content: space-between;
@@ -22,10 +24,8 @@
     margin: 10px auto;
     background-color: #9FE26C;
 }
-
 .red{color:#FF3341 !important}
 .red_focus:focus{border: 1px solid #FF3341 !important}
-
 .budget_income{
     background-color: #25B1AC;
 }
@@ -46,8 +46,7 @@
     color: #000000;
 }
 
-
-/* controll bar */
+/* control bar */
 .controlBar{
     display: flex;
     justify-content: center;
@@ -55,7 +54,6 @@
     height: 50px;
     background-color: #E2E2E2;
 }
-
 select, input, .add_item{
     border: 1px solid #cccccc;
     outline: none;
@@ -112,12 +110,11 @@ select, input, .add_item{
         transform: scale(.95);      
     }
 }
-:focus:not(.add_item){
+:focus:not(.item_del_btn){
     border-color: #25B1AC;
 }
+
 /* bottom */
-
-
 .bottom{
     display: flex;
     justify-content: center;
@@ -155,7 +152,7 @@ select, input, .add_item{
     overflow: hidden;
 }
 .item_del_btn{
-    text-align: center;
+    outline: none;
     border: 1px solid #FF3341;
     background: none;
     transition: .5s;
@@ -167,7 +164,6 @@ select, input, .add_item{
     margin-right: -50px;
     cursor: pointer;
 }
-
 .item:hover .item_del_btn{
     margin-right: 0;
 }

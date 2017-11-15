@@ -1,32 +1,39 @@
 var dataController = (function () {
+
+
     var Expenses = function (id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
         this.percentage = -1;
     };
+
     Expenses.prototype.calcPercentage = function (totalInc) {
         if (totalInc > 0) {
             this.percentage = Math.round((this.value / totalInc) * 100);
-        } else {
+        }else{
             this.percentage = -1;
         }
     };
+
     Expenses.prototype.getPercentage = function () {
         return this.percentage;
     };
+
     var Incomes = function (id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
     };
-    function calculateTotal(type) {
+
+    var calculateTotal = function(type) {
         var sum = 0;
         data.items[type].forEach(function (cur) {
             sum += cur.value;
         });
         data.totals[type] = sum;
-    }
+    };
+
     var data = {
         items: {
             exp: [],
@@ -39,6 +46,7 @@ var dataController = (function () {
         budget: 0,
         percentage: -1
     };
+
     return {
         addItem: function (type, desc, val) {
             var newItem, ID;
@@ -73,7 +81,11 @@ var dataController = (function () {
             // calculate the budget 
             data.budget = data.totals.inc - data.totals.exp;
             // calculate the percentage of income that we spent
-            data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+            if (data.totals.inc > 0){
+                data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+            }else{
+                data.percentage = -1;
+            }
         },
         calculatePercentages: function () {
             data.items.exp.forEach(function (cur) {
@@ -97,17 +109,10 @@ var dataController = (function () {
         testing: function () {
             return data.items;
         }
-
     };
 
 
 })();
-
-
-
-
-
-
 
 
 
@@ -144,11 +149,13 @@ var UIController = (function () {
         dec = numSplit[1]; // dec -> "33"
         return (type === "inc" ? "+" : "-") + " " + int + "." + dec; // return "(+ or -) 2,222.33"
     };
+
     var nodeListForEach = function (list, callback) {
         for (let i = 0; i < list.length; i++) {
             callback(list[i], i);
         }
     };
+
     return {
         getInput: function () {
             return {
@@ -159,7 +166,6 @@ var UIController = (function () {
         },
         addListItem: function (obj, type) {
             var html, newHtml, element;
-
             // create a HTML string with placeholder text
             if (type === "inc") {
                 element = DOMstrings.incomeContainer;
@@ -168,12 +174,10 @@ var UIController = (function () {
                 element = DOMstrings.expenseContainer;
                 html = "<div class='item' id='exp_%id%'> <div class='item_desc'>%description%</div> <div class='right'> <div class='item_val'>%value%</div><div class='item_percentage'></div> <div class='item_del'> <button class='item_del_btn'> <i class='fa fa-close'></i> </button> </div> </div> </div>";
             }
-
             // replace the html placeholder with some actual data
             newHtml = html.replace("%id%", obj.id);
             newHtml = newHtml.replace("%description%", obj.description);
             newHtml = newHtml.replace("%value%", formatNumber(obj.value, type));
-
             // insert the html to the DOM
             document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
         },
@@ -250,12 +254,6 @@ var UIController = (function () {
 
 
 })();
-
-
-
-
-
-
 
 
 
